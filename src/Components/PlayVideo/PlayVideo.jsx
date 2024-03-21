@@ -4,20 +4,14 @@ import like from "../../assets/like.png";
 import dislike from "../../assets/dislike.png";
 import share from "../../assets/share.png";
 import save from "../../assets/save.png";
-
+import { API_KEY } from "../../Api/apiKey";
 import { value_converter } from "../../Api/data";
 import moment from "moment";
 import { useParams } from "react-router-dom";
-
-import dotenv from 'dotenv';
-
-
-dotenv.config({ path: '../../config/.env' }); 
 const PlayVideo = () => {
 
 
     const {videoId} = useParams();
-    const apiKey = process.env.REACT_APP_API_KEY;
 
     const [apiData,setApiData] = useState([]);
     const [channelData,setChannelData] = useState([]);
@@ -25,7 +19,7 @@ const PlayVideo = () => {
     
     const fetchVideoData = async () => {
         // fech videos data
-        const videoDetails_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${apiKey}`;
+        const videoDetails_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`;
         await fetch(videoDetails_URL).then(res => res.json()).then(data => setApiData(data.items[0]))
 
     };

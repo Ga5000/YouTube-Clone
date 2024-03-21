@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Recommended.css";
+import { API_KEY } from "../../Api/ApiKey";
 import { value_converter } from "../../Api/data";
 import { Link } from "react-router-dom";
-import dotenv from 'dotenv';
-
-
-dotenv.config({ path: '../../config/.env' }); 
 
 const Recommended = ({ categoryId }) => {
   const [apiData, setApiData] = useState([]);
@@ -13,8 +10,7 @@ const Recommended = ({ categoryId }) => {
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
-    const apiKey = process.env.REACT_APP_API_KEY;
-    const relatedVideo_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=BR&videoCategoryId=${categoryId}&key=${apiKey}`;
+    const relatedVideo_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=BR&videoCategoryId=${categoryId}&key=${API_KEY}`;
 
     try {
       const response = await fetch(relatedVideo_URL);
