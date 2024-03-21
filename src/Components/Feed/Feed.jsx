@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./Feed.css";
 import { Link } from "react-router-dom";
-import { API_KEY } from "../../Api/apiKey";
+
 import { value_converter } from "../../Api/data";
 import moment from "moment";
+
+import dotenv from 'dotenv';
+
+
+dotenv.config({ path: '../../config/.env' }); 
 const Feed = ({category}) => {
 
     const [data,setData] = useState([]);
+    const apiKey = process.env.API_KEY;
 
     const fetchData = async () => {
-        const videoList_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=BR&videoCategoryId=${category}&key=${API_KEY}`; 
+        const videoList_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=BR&videoCategoryId=${category}&key=${apiKey}`; 
         const response = await fetch(videoList_URL);
         const data = await response.json();
         setData(data.items);

@@ -22,7 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-apiKey.js
+
 
 #git
 * text=auto eol=lf
