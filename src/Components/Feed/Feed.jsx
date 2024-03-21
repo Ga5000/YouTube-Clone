@@ -12,7 +12,8 @@ dotenv.config({ path: '../../config/.env' });
 const Feed = ({category}) => {
 
     const [data,setData] = useState([]);
-    const apiKey = process.env.API_KEY;
+    const apiKey = process.env.REACT_APP_API_KEY;
+    
 
     const fetchData = async () => {
         const videoList_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=BR&videoCategoryId=${category}&key=${apiKey}`; 

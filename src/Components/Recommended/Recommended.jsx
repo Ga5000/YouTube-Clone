@@ -13,7 +13,7 @@ const Recommended = ({ categoryId }) => {
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
-    const apiKey = process.env.API_KEY;
+    const apiKey = process.env.REACT_APP_API_KEY;
     const relatedVideo_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=BR&videoCategoryId=${categoryId}&key=${apiKey}`;
 
     try {
