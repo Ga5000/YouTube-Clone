@@ -4,7 +4,7 @@ import like from "../../assets/like.png";
 import dislike from "../../assets/dislike.png";
 import share from "../../assets/share.png";
 import save from "../../assets/save.png";
-import { API_KEY } from "../../Api/apiKey";
+import { API_KEY } from "../../Api/ApiKey";
 import { value_converter } from "../../Api/data";
 import moment from "moment";
 import { useParams } from "react-router-dom";

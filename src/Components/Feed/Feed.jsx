@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Feed.css";
 import { Link } from "react-router-dom";
-import { API_KEY } from "../../Api/apiKey";
+import { API_KEY } from "../../Api/ApiKey";
 import { value_converter } from "../../Api/data";
 import moment from "moment";
 const Feed = ({category}) => {
